@@ -12,6 +12,7 @@ using going_serverless.Models;
 using Amazon.S3;
 using Amazon;
 using Amazon.S3.Transfer;
+using System.Linq;
 using going_serverless.Configurations;
 
 namespace going_serverless
@@ -57,7 +58,8 @@ namespace going_serverless
         {
             var findResult = await _mongoDbCollection.FindAsync(x => true);
             var listResult = await findResult.ToListAsync();
-            return new JsonResult(listResult);
+            
+            return new JsonResult(listResult.OrderByDescending(x => x.CreatedAt));
         }
 
         [FunctionName("create")]
