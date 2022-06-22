@@ -18,14 +18,12 @@ const FileUpload = ({ file, setFile }) => {
 		const { files } = e.dataTransfer;
 		if (files && files.length) {
 			setFile(files[0]);
-			console.log(files[0]);
 		}
 	};
 
 	const handleFileChanged = (e) => {
 		if (e.target.files && e.target.files.length) {
 			setFile(e.target.files[0]);
-			console.log(e.target.files[0]);
 		}
 	};
 
