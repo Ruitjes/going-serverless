@@ -36,7 +36,7 @@ const CreatePostPage = () => {
 		}
 
 		http
-			.postForm('api/post/create')
+			.postForm('api/post/create', formData)
 			.then(() => navigate('/'))
 			.catch(error => setError(error))
 			.finally(setLoading(false))
